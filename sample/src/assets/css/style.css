@@ -1,7 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-*{
+
+
+* {
     margin: 0px;
     padding: 0px;
+}
+
+.grad-blue-bg {
+    background: #84bfe4;
+    background: -webkit-linear-gradient(to right, #5659d8, #89c0e2);
+    background: linear-gradient(to right, #9697e4, #9bcbe9);
+
 }
