@@ -1,13 +1,24 @@
-import React from "react";
-import Navbar from "./components/Navbar";
-const App=()=>{
-    const Name="Deepika"
-    return(
+import Navbar from "./components/Navbar"
+import Profile from "./pages/Profile"
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Projects from "./pages/Projects"
+import Contact from "./pages/Contact"
+import WebLayout from "./layouts/WebLayout"
+const App = () => {
+    return (
         <>
-        <div className="h-screen w-screen flex flex-col justify-start items-start font-semibold">
-            <Navbar Name={Name}/> 
-        </div>
+            <BrowserRouter>
+                <Routes>
+                    <Route element={<WebLayout />}>
+                        <Route path="/" element={<Profile />} />
+                        <Route path="/projects" element={<Projects />} />
+                        <Route path="/contact" element={<Contact />} />
+                    </Route>
+                </Routes>
+
+            </BrowserRouter>
         </>
     )
- }
- export default App;
+}
+
+export default App

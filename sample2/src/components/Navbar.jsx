@@ -1,18 +1,49 @@
-const Navbar = ({ Name }) => {
+import { User2 } from 'lucide-react'
+import React from 'react'
+import { Link, NavLink } from 'react-router-dom'
 
-    console.log(Name)
-const Navbar =({Home1})=>{
-    console.log(Home1)
+const Navbar = () => {
+    const NavLinks = [{
+        title: "Profile",
+        path: "/"
+    },
+    {
+        title: "Projects",
+        path: "/projects"
+    },
+    {
+        title: "Contact",
+        path: "/contact"
+    }
+    ]
     return (
         <>
-        <div className="w-full h-[15vh] bg-teal-300 text-black flex justify-start items-start gap-4 font-medium font-serif ">
-            {Name}
-        </div>
-        <div className="text-black flex justify-start items-start gap-4 font-medium font-serif ">
-            {Home1}
-        </div>
+            <div className="w-full h-[4rem] flex justify-center items-center bg-teal-300 shadow-md shadow-teal-200 rounded-sm">
+                <div className="w-[80%] h-full flex justify-center items-center flex-row">
+                    <div className='w-1/2 flex h-full justify-start items-center font-bold text-xl text-black'> Deepika P</div>
+                    <div className='w-1/2 flex  h-full justify-end items-center'>
+                        <ul className='w-full list-none flex flex-row justify-center gap-6'>
+                            {
+                                NavLinks.map((navdata, index) => (
+                                    <NavLink key={index} to={navdata.path}>
+                                        <li className='font-bold text-xl text-black'>{navdata.title}</li>
+                                    </NavLink>
+                                ))
+                            }
+                            {/* <Link to={'/projects'}>
+                                <li className='font-bold text-xl text-white'>Projects</li>
+                            </Link>
+                            <Link to={'/contact'}>
+                                <li className='font-bold text-xl text-white'>Contact</li>
+                            </Link> */}
+                        </ul>
+                        <User2 className='h-9 w-9 text-white rounded-full border-2 border-white' />
+                    </div>
+                </div>
+
+            </div>
         </>
     )
 }
-}
-export default Navbar;
+
+export default Navbar
