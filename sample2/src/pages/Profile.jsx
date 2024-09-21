@@ -1,5 +1,5 @@
 
-import Profilex from '../assets/img/profile1.png'
+import Profilex from '../assets/img/profile.png'
 import Navbar from '../components/Navbar'
 const Profile = () => {
     return (
