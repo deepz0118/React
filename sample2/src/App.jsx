@@ -1,7 +1,7 @@
 import Navbar from "./components/Navbar"
 import Profile from "./pages/Profile"
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Projects from "./pages/Projects"
+import Projects from "./pages/projects"
 import Contact from "./pages/Contact"
 import WebLayout from "./layouts/WebLayout"
 const App = () => {
