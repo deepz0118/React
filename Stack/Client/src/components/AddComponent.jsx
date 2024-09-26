@@ -7,19 +7,20 @@ const AddComponent = ({ fetchprojects }) => {
     const descref = useRef(null)
     const linkref = useRef(null)
     const coverref = useRef(null)
-
+    const gitref = useRef(null)
     const handleAdd = async (e) => {
         e.preventDefault()
         const projectdata = {
             title: titleref.current.value,
             desc: descref.current.value,
             link: linkref.current.value,
-            coverimg: coverref.current.value
+            coverimg: coverref.current.value,
+            git: gitref.current.value
         }
         try {
             const response = await addProject(projectdata)
-            console.log(response.status)
-            if (response.status === 201) {
+            console.log(response)
+            if (response.status === 200) {
                 console.log("added")
                 toast('Project added !', {
                     className: 'bg-gradient-to-r from-green-500 to-lime-500 rounded-lg shadow-lg text-white p-3 flex gap-5 text-lg font-bold',
@@ -47,7 +48,7 @@ const AddComponent = ({ fetchprojects }) => {
                 visible && (
                     <>
                         <div className="h-screen w-screen absolute top-0 left-0 bg-black/20 flex justify-center items-center z-50">
-                            <div className=" h-[50%] w-[30%] bg-red z-50 flex flex-col  bg-white  shadow-lg ">
+                            <div className=" h-[60%] w-[30%] bg-red z-50 flex flex-col  bg-white  shadow-lg ">
                                 <div className="w-full h-[15%] flex flex-row justify-start px-10 items-center border-2 text-purple-500 bg-white text-xl font-bold shadow-sm">
                                     <div className="w-1/2">
                                         Add Project
@@ -66,6 +67,7 @@ const AddComponent = ({ fetchprojects }) => {
                                         <input type="text" ref={descref} name="" id="desc" placeholder="Desc" className="p-3 bg-[#f8f8f8] w-full font-bold outline-none active:outline-none focus:border-b-2  hover:border-b-2 hover:border-purple-200 focus:border-purple-600 mb-3" required />
                                         <input type="text" ref={linkref} name="" id="Link" placeholder="Project Link" className="p-3 bg-[#f8f8f8] w-full font-bold outline-none active:outline-none focus:border-b-2  hover:border-b-2 hover:border-purple-200 focus:border-purple-600 mb-3" required />
                                         <input type="text" ref={coverref} name="" id="cover" placeholder="Cover URL" className="p-3 bg-[#f8f8f8] w-full font-bold outline-none active:outline-none focus:border-b-2  hover:border-b-2 hover:border-purple-200 focus:border-purple-600 mb-3" required />
+                                        <input type="text" ref={gitref} name="" id="git" placeholder="Git" className="p-3 bg-[#f8f8f8] w-full font-bold outline-none active:outline-none focus:border-b-2  hover:border-b-2 hover:border-purple-200 focus:border-purple-600 mb-3" required />
                                         <button type="submit" className="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-sm text-md px-5 py-2.5 text-center w-full h-[15%] mt-4">Add Project</button>
                                     </form>
                                 </div>
